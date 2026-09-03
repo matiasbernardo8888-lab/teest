@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Connectar Tecnologia | Celulares, iPhone e Assistência Técnica em Capelinha MG</title>
+<meta name="description" content="Connectar Tecnologia em Capelinha MG. Celulares, iPhones, acessórios e assistência técnica. Atendimento de confiança e produtos de qualidade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin:0; background:#F6F7F9; color:#16191D; font-family:'Manrope','Helvetica Neue',Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  * { box-sizing: border-box; }
+  a { color:#0B72CE; text-decoration:none; }
+  a:hover { color:#F2761A; }
+  h1,h2,h3,p,ul,figure,blockquote { margin:0; }
+  ul { padding:0; list-style:none; }
+  img { display:block; }
+  ::selection { background:#0B72CE; color:#fff; }
+  @media (max-width: 960px) {
+    [data-2col] { grid-template-columns: 1fr !important; }
+    [data-desktop-nav] { display: none !important; }
+    [data-menu-btn] { display: flex !important; }
+    [data-header-cta] { display: none !important; }
+  }
+  @media (max-width: 700px) {
+    [data-gallery] { grid-template-columns: 1fr 1fr !important; }
+    [data-tall] { min-height: 320px !important; }
+  }
+</style>
+</helmet>
+
+<div style="width:100%">
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.94);backdrop-filter:blur(14px);border-bottom:1px solid #E7EAEE">
+    <div style="max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:30px">
+      <a href="#inicio" style="flex-shrink:0;display:block">
+        <img src="img/logo.png" alt="Connectar Tecnologia" style="height:46px;width:auto;mix-blend-mode:multiply">
+      </a>
+      <nav data-desktop-nav style="display:flex;align-items:center;gap:26px;margin-left:auto">
+        <a href="#inicio" style="font-size:14.5px;font-weight:600;color:#16191D">Início</a>
+        <a href="#celulares" style="font-size:14.5px;font-weight:600;color:#16191D">Celulares</a>
+        <a href="#acessorios" style="font-size:14.5px;font-weight:600;color:#16191D">Acessórios</a>
+        <a href="#assistencia" style="font-size:14.5px;font-weight:600;color:#16191D">Assistência</a>
+        <a href="#sobre" style="font-size:14.5px;font-weight:600;color:#16191D">Sobre</a>
+        <a href="#contato" style="font-size:14.5px;font-weight:600;color:#16191D">Contato</a>
+      </nav>
+      <a href="{{ waGeral }}" target="_blank" data-header-cta style="flex-shrink:0;background:#0B72CE;color:#fff;font-size:14px;font-weight:700;padding:12px 22px;border-radius:6px;display:flex;align-items:center;gap:9px" style-hover="background:#06264A;color:#fff">
+        <span style="width:7px;height:7px;background:#F2761A;display:block"></span>WhatsApp
+      </a>
+      <button data-menu-btn onClick="{{ toggleMenu }}" style="display:none;margin-left:auto;background:none;border:1px solid #E7EAEE;border-radius:6px;width:46px;height:46px;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;padding:0">
+        <span style="width:20px;height:2px;background:#06264A;display:block"></span>
+        <span style="width:20px;height:2px;background:#06264A;display:block"></span>
+        <span style="width:20px;height:2px;background:#F2761A;display:block"></span>
+      </button>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <nav style="border-top:1px solid #E7EAEE;background:#fff;padding:14px 24px 24px;display:flex;flex-direction:column">
+        <a href="#celulares" onClick="{{ closeMenu }}" style="font-size:17px;font-weight:600;color:#16191D;padding:14px 0;border-bottom:1px solid #F0F2F5">Celulares</a>
+        <a href="#acessorios" onClick="{{ closeMenu }}" style="font-size:17px;font-weight:600;color:#16191D;padding:14px 0;border-bottom:1px solid #F0F2F5">Acessórios</a>
+        <a href="#assistencia" onClick="{{ closeMenu }}" style="font-size:17px;font-weight:600;color:#16191D;padding:14px 0;border-bottom:1px solid #F0F2F5">Assistência</a>
+        <a href="#sobre" onClick="{{ closeMenu }}" style="font-size:17px;font-weight:600;color:#16191D;padding:14px 0;border-bottom:1px solid #F0F2F5">Sobre</a>
+        <a href="#contato" onClick="{{ closeMenu }}" style="font-size:17px;font-weight:600;color:#16191D;padding:14px 0">Contato</a>
+        <a href="{{ waGeral }}" target="_blank" style="margin-top:18px;background:#F2761A;color:#fff;text-align:center;font-size:16px;font-weight:700;padding:16px;border-radius:6px">Falar no WhatsApp</a>
+      </nav>
+    </sc-if>
+  </header>
+
+  <section ref="{{ seqSection }}" style="position:relative;background:#06264A;height:400vh;z-index:1">
+    <div ref="{{ seqStage }}" style="position:absolute;top:0;left:0;width:100%;height:100vh;min-height:560px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%, #0B3A66 0%, #06264A 45%, #041B34 100%);will-change:transform">
+      <canvas ref="{{ seqParticles }}" style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none"></canvas>
+      <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
+        <div style="position:absolute;left:12%;top:-20%;width:1px;height:140%;background:linear-gradient(180deg,transparent,rgba(46,155,232,0.55),transparent);transform:rotate(8deg)"></div>
+        <div style="position:absolute;left:26%;top:-20%;width:2px;height:140%;background:linear-gradient(180deg,transparent,rgba(242,118,26,0.5),transparent);transform:rotate(8deg)"></div>
+        <div style="position:absolute;right:18%;top:-20%;width:1px;height:140%;background:linear-gradient(180deg,transparent,rgba(46,155,232,0.45),transparent);transform:rotate(-8deg)"></div>
+        <div style="position:absolute;right:31%;top:-20%;width:3px;height:140%;background:linear-gradient(180deg,transparent,rgba(46,155,232,0.18),transparent);transform:rotate(-8deg)"></div>
+        <div style="position:absolute;left:0;right:0;top:15%;height:1px;background:linear-gradient(90deg,transparent,rgba(200,218,236,0.20) 22%,rgba(200,218,236,0.20) 78%,transparent)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:15%;height:1px;background:linear-gradient(90deg,transparent,rgba(242,118,26,0.18) 22%,rgba(242,118,26,0.18) 78%,transparent)"></div>
+        <div style="position:absolute;left:50%;top:50%;width:min(78vh,92%);aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(46,155,232,0.22),transparent 68%);filter:blur(30px)"></div>
+      </div>
+      <div style="position:absolute;left:clamp(10px,3vw,44px);top:0;height:100%;display:flex;align-items:center;pointer-events:none">
+        <span style="writing-mode:vertical-rl;font-family:'Orbitron','Manrope',sans-serif;font-weight:900;font-size:clamp(28px,4.4vw,64px);letter-spacing:0.22em;color:transparent;-webkit-text-stroke:1.2px rgba(200,218,236,0.5);text-transform:uppercase">Bem-vindo</span>
+      </div>
+      <div style="position:absolute;right:clamp(10px,3vw,44px);top:0;height:100%;display:flex;align-items:center;pointer-events:none">
+        <span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Orbitron','Manrope',sans-serif;font-weight:700;font-size:clamp(14px,1.5vw,22px);letter-spacing:0.5em;color:#F2761A;text-transform:uppercase">Connectar</span>
+      </div>
+      <canvas ref="{{ seqCanvas }}" width="720" height="992" style="position:relative;height:100%;width:auto;display:block;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 58px,#000 calc(100% - 58px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 58px,#000 calc(100% - 58px),transparent 100%)"></canvas>
+    </div>
+  </section>
+
+  <section id="inicio" ref="{{ heroSection }}" style="position:relative;background:#06264A;min-height:640px;display:flex;margin-top:-88vh;z-index:2;will-change:opacity,transform;transform:translate3d(0,88vh,0);opacity:0.25">
+    <img src="img/p13.jpeg" alt="Interior da loja Connectar Tecnologia" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,38,74,0.95) 0%,rgba(6,38,74,0.86) 40%,rgba(6,38,74,0.42) 76%,rgba(6,38,74,0.18) 100%)"></div>
+    <div style="position:absolute;left:0;right:0;top:0;height:22vh;background:linear-gradient(180deg,#06264A 0%,rgba(6,38,74,0.72) 42%,transparent 100%);pointer-events:none"></div>
+    <div style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(46,155,232,0.5) 30%,rgba(242,118,26,0.45) 70%,transparent);pointer-events:none"></div>
+    <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;padding:96px 28px 80px;display:flex;flex-direction:column;justify-content:center">
+      <div data-reveal style="max-width:720px">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:26px">
+          <span style="width:10px;height:10px;background:#F2761A;display:block"></span>
+          <span style="width:10px;height:10px;background:#2E9BE8;display:block"></span>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#8FB6DC;margin-left:6px">CAPELINHA — MG</span>
+        </div>
+        <h1 style="font-size:clamp(40px,6.4vw,80px);line-height:0.98;font-weight:800;letter-spacing:-0.035em;color:#fff;text-wrap:balance">Conecte-se com a tecnologia.</h1>
+        <p style="margin-top:24px;font-size:clamp(17px,2vw,22px);line-height:1.5;color:#C8DAEC;max-width:520px;font-weight:500">Celulares, acessórios e assistência técnica em um só lugar.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:38px">
+          <a href="#celulares" style="background:#0B72CE;color:#fff;font-size:15.5px;font-weight:700;padding:18px 30px;border-radius:6px" style-hover="background:#fff;color:#06264A">Conheça nossos produtos</a>
+          <a href="{{ waGeral }}" target="_blank" style="border:1.5px solid rgba(255,255,255,0.35);color:#fff;font-size:15.5px;font-weight:700;padding:18px 30px;border-radius:6px" style-hover="border-color:#F2761A;color:#F2761A">Falar no WhatsApp</a>
+        </div>
+        <div style="margin-top:48px;display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.16);max-width:420px">
+          <span style="font-size:16px;letter-spacing:0.14em;color:#F2761A">★★★★★</span>
+          <span style="font-size:14.5px;font-weight:600;color:#fff">4,9 <span style="color:#8FB6DC;font-weight:500">• 63 avaliações</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="celulares" style="background:#fff;padding:104px 28px">
+    <div style="max-width:1280px;margin:0 auto">
+      <div data-reveal style="max-width:640px;margin-bottom:52px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#0B72CE">CATEGORIAS</span>
+        <h2 style="margin-top:14px;font-size:clamp(32px,4.4vw,54px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;color:#06264A">Tudo para ficar conectado.</h2>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px">
+
+        <a href="{{ waIphone }}" target="_blank" style="display:block;border:1px solid #E7EAEE;border-radius:10px;overflow:hidden;background:#fff;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.35);border-color:#0B72CE">
+          <div style="height:200px;overflow:hidden"><img src="img/iphone-cores.jpeg" alt="iPhone" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#06264A">iPhone</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#5C6672">Aparelhos, acessórios e proteção.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#0B72CE">Consultar →</span>
+          </div>
+        </a>
+
+        <a href="{{ waSamsung }}" target="_blank" style="display:block;border:1px solid #E7EAEE;border-radius:10px;overflow:hidden;background:#fff;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.35);border-color:#0B72CE">
+          <div style="height:200px;overflow:hidden"><img src="img/p12.jpeg" alt="Samsung" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#06264A">Samsung</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#5C6672">Consulte modelos disponíveis.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#0B72CE">Consultar →</span>
+          </div>
+        </a>
+
+        <a href="{{ waGeral }}" target="_blank" style="display:block;border:1px solid #E7EAEE;border-radius:10px;overflow:hidden;background:#fff;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.35);border-color:#0B72CE">
+          <div style="height:200px;overflow:hidden"><img src="img/p10.jpeg" alt="Celulares" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#06264A">Celulares</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#5C6672">Diversas marcas em exposição.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#0B72CE">Ver na loja →</span>
+          </div>
+        </a>
+
+        <a id="acessorios" href="{{ waAcessorios }}" target="_blank" style="display:block;border:1px solid #E7EAEE;border-radius:10px;overflow:hidden;background:#fff;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.35);border-color:#0B72CE">
+          <div style="height:200px;overflow:hidden"><img src="img/p05.jpeg" alt="Acessórios" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#06264A">Acessórios</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#5C6672">Cabos, carregadores e suportes.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#0B72CE">Ver opções →</span>
+          </div>
+        </a>
+
+        <a href="{{ waFones }}" target="_blank" style="display:block;border:1px solid #E7EAEE;border-radius:10px;overflow:hidden;background:#fff;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.35);border-color:#0B72CE">
+          <div style="height:200px;overflow:hidden"><img src="img/p20.jpeg" alt="Áudio" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#06264A">Áudio</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#5C6672">Fones e caixas de som.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#0B72CE">Confira na loja →</span>
+          </div>
+        </a>
+
+        <a href="{{ waGeral }}" target="_blank" style="display:block;border:1px solid #E7EAEE;border-radius:10px;overflow:hidden;background:#fff;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.35);border-color:#0B72CE">
+          <div style="height:200px;overflow:hidden"><img src="img/p11.jpeg" alt="Capinhas" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#06264A">Capinhas</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#5C6672">Proteção para o seu modelo.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#0B72CE">Ver opções →</span>
+          </div>
+        </a>
+
+        <a href="{{ waGeral }}" target="_blank" style="display:block;border:1px solid #E7EAEE;border-radius:10px;overflow:hidden;background:#fff;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.35);border-color:#0B72CE">
+          <div style="height:200px;overflow:hidden"><img src="img/p06.jpeg" alt="Películas" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#06264A">Películas</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#5C6672">Aplicação feita na loja.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#0B72CE">Confira na loja →</span>
+          </div>
+        </a>
+
+        <a href="#assistencia" style="display:block;border:1px solid #06264A;border-radius:10px;overflow:hidden;background:#06264A;transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(6,38,74,0.5)">
+          <div style="height:200px;overflow:hidden"><img src="img/p15.jpeg" alt="Assistência técnica" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:22px">
+            <h3 style="font-size:19px;font-weight:700;color:#fff">Assistência Técnica</h3>
+            <p style="margin-top:7px;font-size:14px;line-height:1.5;color:#9FBEDC">Manutenção, tela, bateria e mais.</p>
+            <span style="display:block;margin-top:18px;font-size:14px;font-weight:700;color:#F2761A">Solicitar orçamento →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#F6F7F9;padding:104px 28px;border-top:1px solid #E7EAEE">
+    <div style="max-width:1280px;margin:0 auto">
+      <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px">
+        <div style="max-width:560px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#0B72CE">CURADORIA</span>
+          <h2 style="margin-top:14px;font-size:clamp(32px,4.4vw,54px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;color:#06264A">Produtos em destaque</h2>
+        </div>
+        <p style="font-size:15px;line-height:1.6;color:#5C6672;max-width:330px">Seleção montada na loja. Consulte disponibilidade e valores pelo WhatsApp.</p>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:24px">
+
+        <div style="background:#fff;border:1px solid #E7EAEE;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .35s ease" style-hover="box-shadow:0 24px 50px -28px rgba(6,38,74,0.4)">
+          <div style="height:300px;overflow:hidden"><img src="img/p00.jpeg" alt="iPhone" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:11.5px;font-weight:700;letter-spacing:0.2em;color:#0B72CE">CELULARES</span>
+            <h3 style="margin-top:12px;font-size:23px;font-weight:800;letter-spacing:-0.02em;color:#06264A">iPhone</h3>
+            <p style="margin-top:8px;font-size:15px;color:#5C6672;flex:1">Consulte disponibilidade</p>
+            <a href="{{ waIphone }}" target="_blank" style="margin-top:22px;align-self:flex-start;background:#06264A;color:#fff;font-size:14px;font-weight:700;padding:14px 22px;border-radius:6px" style-hover="background:#F2761A;color:#fff">Consultar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E7EAEE;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .35s ease" style-hover="box-shadow:0 24px 50px -28px rgba(6,38,74,0.4)">
+          <div style="height:300px;overflow:hidden"><img src="img/p16.jpeg" alt="Samsung Galaxy" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:11.5px;font-weight:700;letter-spacing:0.2em;color:#0B72CE">CELULARES E TABLETS</span>
+            <h3 style="margin-top:12px;font-size:23px;font-weight:800;letter-spacing:-0.02em;color:#06264A">Samsung Galaxy</h3>
+            <p style="margin-top:8px;font-size:15px;color:#5C6672;flex:1">Consulte disponibilidade</p>
+            <a href="{{ waSamsung }}" target="_blank" style="margin-top:22px;align-self:flex-start;background:#06264A;color:#fff;font-size:14px;font-weight:700;padding:14px 22px;border-radius:6px" style-hover="background:#F2761A;color:#fff">Consultar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E7EAEE;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .35s ease" style-hover="box-shadow:0 24px 50px -28px rgba(6,38,74,0.4)">
+          <div style="height:300px;overflow:hidden"><img src="img/p07.jpeg" alt="Fones" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:11.5px;font-weight:700;letter-spacing:0.2em;color:#0B72CE">ÁUDIO</span>
+            <h3 style="margin-top:12px;font-size:23px;font-weight:800;letter-spacing:-0.02em;color:#06264A">Fones</h3>
+            <p style="margin-top:8px;font-size:15px;color:#5C6672;flex:1">Confira na loja</p>
+            <a href="{{ waFones }}" target="_blank" style="margin-top:22px;align-self:flex-start;background:#06264A;color:#fff;font-size:14px;font-weight:700;padding:14px 22px;border-radius:6px" style-hover="background:#F2761A;color:#fff">Consultar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E7EAEE;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .35s ease" style-hover="box-shadow:0 24px 50px -28px rgba(6,38,74,0.4)">
+          <div style="height:300px;overflow:hidden"><img src="img/p21.jpeg" alt="Caixas de som" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:11.5px;font-weight:700;letter-spacing:0.2em;color:#0B72CE">ÁUDIO</span>
+            <h3 style="margin-top:12px;font-size:23px;font-weight:800;letter-spacing:-0.02em;color:#06264A">Caixas de som</h3>
+            <p style="margin-top:8px;font-size:15px;color:#5C6672;flex:1">Confira na loja</p>
+            <a href="{{ waCaixas }}" target="_blank" style="margin-top:22px;align-self:flex-start;background:#06264A;color:#fff;font-size:14px;font-weight:700;padding:14px 22px;border-radius:6px" style-hover="background:#F2761A;color:#fff">Consultar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #E7EAEE;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .35s ease" style-hover="box-shadow:0 24px 50px -28px rgba(6,38,74,0.4)">
+          <div style="height:300px;overflow:hidden"><img src="img/p22.jpeg" alt="Acessórios" style="width:100%;height:100%;object-fit:cover"></div>
+          <div style="padding:26px;display:flex;flex-direction:column;flex:1">
+            <span style="font-size:11.5px;font-weight:700;letter-spacing:0.2em;color:#0B72CE">ACESSÓRIOS</span>
+            <h3 style="margin-top:12px;font-size:23px;font-weight:800;letter-spacing:-0.02em;color:#06264A">Acessórios</h3>
+            <p style="margin-top:8px;font-size:15px;color:#5C6672;flex:1">Ver opções</p>
+            <a href="{{ waAcessorios }}" target="_blank" style="margin-top:22px;align-self:flex-start;background:#06264A;color:#fff;font-size:14px;font-weight:700;padding:14px 22px;border-radius:6px" style-hover="background:#F2761A;color:#fff">Consultar no WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff">
+    <div data-reveal data-2col style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr">
+      <div data-tall style="min-height:620px;overflow:hidden">
+        <img src="img/p04.jpeg" alt="iPhone na Connectar Tecnologia" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="padding:92px clamp(28px,5vw,80px);display:flex;flex-direction:column;justify-content:center">
+        <div style="display:flex;gap:6px;margin-bottom:24px">
+          <span style="width:9px;height:9px;background:#2E9BE8;display:block"></span>
+          <span style="width:9px;height:9px;background:#0B72CE;display:block"></span>
+          <span style="width:9px;height:9px;background:#F2761A;display:block"></span>
+        </div>
+        <h2 style="font-size:clamp(32px,4vw,52px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;color:#06264A;text-wrap:balance">Seu próximo iPhone está aqui.</h2>
+        <h3 style="margin-top:22px;font-size:20px;font-weight:700;color:#0B72CE">Escolha seu próximo iPhone</h3>
+        <p style="margin-top:12px;font-size:17px;line-height:1.6;color:#5C6672;max-width:440px">Modelos, acessórios e proteção para deixar sua experiência ainda melhor.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+          <a href="{{ waIphone }}" target="_blank" style="background:#0B72CE;color:#fff;font-size:15px;font-weight:700;padding:17px 28px;border-radius:6px" style-hover="background:#06264A;color:#fff">Consultar iPhones</a>
+          <a href="{{ waGeral }}" target="_blank" style="border:1.5px solid #E7EAEE;color:#06264A;font-size:15px;font-weight:700;padding:17px 28px;border-radius:6px" style-hover="border-color:#F2761A;color:#F2761A">Falar com a equipe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="assistencia" style="background:#06264A;padding:104px 28px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:56px;right:-70px;width:220px;height:220px;border:1.5px solid rgba(143,182,220,0.25);border-radius:50%;border-right-color:transparent"></div>
+    <div style="max-width:1280px;margin:0 auto;position:relative">
+      <div data-reveal data-2col style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center">
+        <div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#F2761A">ASSISTÊNCIA TÉCNICA</span>
+          <h2 style="margin-top:16px;font-size:clamp(32px,4.2vw,52px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Seu celular nas mãos de quem entende.</h2>
+          <p style="margin-top:22px;font-size:17px;line-height:1.6;color:#C8DAEC;max-width:460px">Da manutenção aos acessórios, cuidamos do seu aparelho para você continuar conectado.</p>
+          <div style="margin-top:36px;display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:1px;background:rgba(143,182,220,0.22);border:1px solid rgba(143,182,220,0.22)">
+            <div style="background:#06264A;padding:20px 18px;font-size:15px;font-weight:600;color:#fff">Troca de tela</div>
+            <div style="background:#06264A;padding:20px 18px;font-size:15px;font-weight:600;color:#fff">Manutenção</div>
+            <div style="background:#06264A;padding:20px 18px;font-size:15px;font-weight:600;color:#fff">Diagnóstico</div>
+            <div style="background:#06264A;padding:20px 18px;font-size:15px;font-weight:600;color:#fff">Bateria</div>
+            <div style="background:#06264A;padding:20px 18px;font-size:15px;font-weight:600;color:#fff">Película</div>
+            <div style="background:#06264A;padding:20px 18px;font-size:15px;font-weight:600;color:#fff">Proteção</div>
+          </div>
+          <a href="{{ waAssistencia }}" target="_blank" style="display:inline-block;margin-top:34px;background:#F2761A;color:#fff;font-size:15.5px;font-weight:700;padding:18px 30px;border-radius:6px" style-hover="background:#fff;color:#06264A">Solicitar orçamento</a>
+        </div>
+        <div data-tall style="min-height:540px;border-radius:12px;overflow:hidden">
+          <img src="img/p11.jpeg" alt="Balcão de atendimento da Connectar" style="width:100%;height:100%;object-fit:cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;padding:104px 28px">
+    <div style="max-width:1280px;margin:0 auto">
+      <h2 data-reveal style="font-size:clamp(32px,4.4vw,54px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;color:#06264A;max-width:620px">Por que escolher a Connectar?</h2>
+      <div data-reveal style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));border-top:1px solid #E7EAEE">
+        <div style="padding:32px 28px 32px 0;border-bottom:1px solid #E7EAEE">
+          <span style="font-size:13px;font-weight:800;color:#F2761A;letter-spacing:0.1em">01</span>
+          <h3 style="margin-top:12px;font-size:20px;font-weight:700;color:#06264A">Atendimento próximo</h3>
+        </div>
+        <div style="padding:32px 28px 32px 0;border-bottom:1px solid #E7EAEE">
+          <span style="font-size:13px;font-weight:800;color:#F2761A;letter-spacing:0.1em">02</span>
+          <h3 style="margin-top:12px;font-size:20px;font-weight:700;color:#06264A">Produtos de qualidade</h3>
+        </div>
+        <div style="padding:32px 28px 32px 0;border-bottom:1px solid #E7EAEE">
+          <span style="font-size:13px;font-weight:800;color:#F2761A;letter-spacing:0.1em">03</span>
+          <h3 style="margin-top:12px;font-size:20px;font-weight:700;color:#06264A">Assistência técnica</h3>
+        </div>
+        <div style="padding:32px 28px 32px 0;border-bottom:1px solid #E7EAEE">
+          <span style="font-size:13px;font-weight:800;color:#F2761A;letter-spacing:0.1em">04</span>
+          <h3 style="margin-top:12px;font-size:20px;font-weight:700;color:#06264A">Compra na loja</h3>
+        </div>
+        <div style="padding:32px 28px 32px 0;border-bottom:1px solid #E7EAEE">
+          <span style="font-size:13px;font-weight:800;color:#F2761A;letter-spacing:0.1em">05</span>
+          <h3 style="margin-top:12px;font-size:20px;font-weight:700;color:#06264A">Retirada na loja</h3>
+        </div>
+        <div style="padding:32px 28px 32px 0;border-bottom:1px solid #E7EAEE">
+          <span style="font-size:13px;font-weight:800;color:#F2761A;letter-spacing:0.1em">06</span>
+          <h3 style="margin-top:12px;font-size:20px;font-weight:700;color:#06264A">Entrega</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#F6F7F9;padding:104px 28px;border-top:1px solid #E7EAEE">
+    <div style="max-width:1280px;margin:0 auto">
+      <div data-reveal data-2col style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(32px,5vw,72px)">
+        <div>
+          <h2 style="font-size:clamp(32px,4.2vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;color:#06264A">Quem conhece, recomenda.</h2>
+          <div style="margin-top:36px;display:flex;align-items:flex-end;gap:20px">
+            <span style="font-size:clamp(64px,9vw,110px);line-height:0.85;font-weight:800;letter-spacing:-0.05em;color:#0B72CE">4,9</span>
+            <div style="padding-bottom:8px">
+              <div style="font-size:17px;letter-spacing:0.14em;color:#F2761A">★★★★★</div>
+              <div style="margin-top:6px;font-size:14.5px;font-weight:600;color:#5C6672">63 avaliações</div>
+            </div>
+          </div>
+          <p style="margin-top:26px;font-size:16px;line-height:1.6;color:#5C6672;max-width:330px">Confira o que nossos clientes dizem.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <figure style="background:#fff;border:1px solid #E7EAEE;border-left:3px solid #0B72CE;border-radius:8px;padding:32px">
+            <blockquote style="font-size:19px;line-height:1.55;font-weight:600;color:#16191D;letter-spacing:-0.01em">“Excelente atendimento e produtos de qualidade! Melhor loja da região”</blockquote>
+            <figcaption style="margin-top:20px;font-size:14px;font-weight:700;color:#5C6672">— Rosiana Rocha</figcaption>
+          </figure>
+          <figure style="background:#fff;border:1px solid #E7EAEE;border-left:3px solid #F2761A;border-radius:8px;padding:32px">
+            <blockquote style="font-size:19px;line-height:1.55;font-weight:600;color:#16191D;letter-spacing:-0.01em">“Depois de dois dias tentando comprar um celular aqui em BH e acumulando experiências frustrantes, lembrei da Bárbara e do Matheus que tem essa loja em Capelinha...”</blockquote>
+            <figcaption style="margin-top:20px;font-size:14px;font-weight:700;color:#5C6672">— Barbara Barbosa Cordeiro</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" style="background:#fff;padding:104px 28px">
+    <div style="max-width:1280px;margin:0 auto">
+      <div data-reveal data-2col style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(32px,5vw,72px);align-items:center">
+        <div data-tall style="min-height:520px;border-radius:12px;overflow:hidden">
+          <img src="img/p08.jpeg" alt="Loja Connectar Tecnologia" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#0B72CE">SOBRE A LOJA</span>
+          <h2 style="margin-top:16px;font-size:clamp(32px,4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;color:#06264A;text-wrap:balance">Uma loja feita para conectar você.</h2>
+          <p style="margin-top:24px;font-size:17px;line-height:1.65;color:#5C6672;max-width:460px">A Connectar Tecnologia reúne celulares, acessórios e assistência técnica em um ambiente pensado para oferecer praticidade, confiança e uma experiência diferente de compra.</p>
+          <p style="margin-top:20px;font-size:17px;line-height:1.65;font-weight:700;color:#06264A">Estamos em Capelinha, Minas Gerais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#F6F7F9;padding:104px 28px;border-top:1px solid #E7EAEE">
+    <div style="max-width:1280px;margin:0 auto">
+      <div data-reveal style="max-width:620px;margin-bottom:44px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#0B72CE">GALERIA</span>
+        <h2 style="margin-top:14px;font-size:clamp(32px,4.4vw,54px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;color:#06264A">Conheça o ambiente.</h2>
+      </div>
+      <div data-reveal data-gallery onClick="{{ onGalleryClick }}" style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:14px">
+        <div style="grid-column:span 2;grid-row:span 2;overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p09.jpeg" data-src="img/p09.jpeg" alt="Prateleiras da loja" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p17.jpeg" data-src="img/p17.jpeg" alt="Nichos iluminados" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p01.jpeg" data-src="img/p01.jpeg" alt="iPhones" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="grid-column:span 2;overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p14.jpeg" data-src="img/p14.jpeg" alt="Exposição de acessórios" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="grid-column:span 2;overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p21.jpeg" data-src="img/p21.jpeg" alt="Balcão central" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p19.jpeg" data-src="img/p19.jpeg" alt="Prateleiras" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p03.jpeg" data-src="img/p03.jpeg" alt="Embalagem Connectar" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p10.jpeg" data-src="img/p10.jpeg" alt="Celulares" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+        <div style="overflow:hidden;border-radius:10px;cursor:zoom-in"><img src="img/p18.jpeg" data-src="img/p18.jpeg" alt="Interior da loja" style="width:100%;height:100%;object-fit:cover;transition:transform .6s ease" style-hover="transform:scale(1.04)"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" style="background:#fff;padding:104px 28px">
+    <div style="max-width:1280px;margin:0 auto">
+      <div data-reveal data-2col style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center">
+        <div data-tall style="min-height:560px;border-radius:12px;overflow:hidden">
+          <img src="img/fachada.jpeg" alt="Fachada da Connectar Tecnologia em Capelinha MG" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#0B72CE">LOCALIZAÇÃO</span>
+          <h2 style="margin-top:16px;font-size:clamp(32px,4.2vw,52px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;color:#06264A">Estamos em Capelinha.</h2>
+          <div style="margin-top:32px;padding-top:28px;border-top:1px solid #E7EAEE">
+            <p style="font-size:19px;font-weight:800;color:#06264A;letter-spacing:-0.01em">Connectar Tecnologia</p>
+            <p style="margin-top:12px;font-size:16.5px;line-height:1.7;color:#5C6672">Praça do Povo, 20<br>Centro<br>Capelinha - MG<br>39680-000</p>
+            <p style="margin-top:18px;font-size:16.5px;font-weight:700;color:#06264A">(33) 99199-4419</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:32px">
+            <a href="https://www.google.com/maps/search/?api=1&query=Connectar+Tecnologia+Pra%C3%A7a+do+Povo+20+Centro+Capelinha+MG" target="_blank" style="background:#0B72CE;color:#fff;font-size:15px;font-weight:700;padding:17px 28px;border-radius:6px" style-hover="background:#06264A;color:#fff">Como chegar</a>
+            <a href="{{ waGeral }}" target="_blank" style="border:1.5px solid #E7EAEE;color:#06264A;font-size:15px;font-weight:700;padding:17px 28px;border-radius:6px" style-hover="border-color:#F2761A;color:#F2761A">Falar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div data-reveal style="margin-top:32px;border:1px solid #E7EAEE;border-radius:12px;overflow:hidden">
+        <iframe title="Mapa da Connectar Tecnologia" src="https://www.google.com/maps?q=Pra%C3%A7a%20do%20Povo%2C%2020%20-%20Centro%2C%20Capelinha%20-%20MG%2C%2039680-000&output=embed" style="width:100%;height:340px;border:0;display:block" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#F6F7F9;padding:96px 28px;border-top:1px solid #E7EAEE">
+    <div style="max-width:1280px;margin:0 auto">
+      <div data-reveal style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:22px">
+        <div style="max-width:520px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;color:#0B72CE">INSTAGRAM</span>
+          <h2 style="margin-top:14px;font-size:clamp(28px,3.6vw,44px);line-height:1.06;font-weight:800;letter-spacing:-0.03em;color:#06264A">Siga a Connectar</h2>
+          <p style="margin-top:14px;font-size:16px;line-height:1.6;color:#5C6672">Novidades, produtos, ofertas e tecnologia direto no nosso Instagram.</p>
+        </div>
+        <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="background:#06264A;color:#fff;font-size:15px;font-weight:700;padding:17px 28px;border-radius:6px" style-hover="background:#F2761A;color:#fff">Seguir no Instagram</a>
+      </div>
+      <div data-reveal style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px">
+        <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="display:block;aspect-ratio:1/1;overflow:hidden;border-radius:8px"><img src="img/p04.jpeg" alt="Post Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" style-hover="transform:scale(1.05)"></a>
+        <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="display:block;aspect-ratio:1/1;overflow:hidden;border-radius:8px"><img src="img/p02.jpeg" alt="Post Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" style-hover="transform:scale(1.05)"></a>
+        <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="display:block;aspect-ratio:1/1;overflow:hidden;border-radius:8px"><img src="img/p01.jpeg" alt="Post Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" style-hover="transform:scale(1.05)"></a>
+        <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="display:block;aspect-ratio:1/1;overflow:hidden;border-radius:8px"><img src="img/p00.jpeg" alt="Post Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" style-hover="transform:scale(1.05)"></a>
+        <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="display:block;aspect-ratio:1/1;overflow:hidden;border-radius:8px"><img src="img/p10.jpeg" alt="Post Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" style-hover="transform:scale(1.05)"></a>
+        <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="display:block;aspect-ratio:1/1;overflow:hidden;border-radius:8px"><img src="img/p03.jpeg" alt="Post Instagram" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" style-hover="transform:scale(1.05)"></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#06264A;padding:120px 28px;position:relative;overflow:hidden">
+    <div style="position:absolute;left:6%;top:24%;width:14px;height:14px;background:#2E9BE8"></div>
+    <div style="position:absolute;left:9%;top:52%;width:22px;height:22px;background:#F2761A"></div>
+    <div style="position:absolute;right:8%;top:30%;width:18px;height:18px;background:#2E9BE8"></div>
+    <div style="position:absolute;right:14%;bottom:22%;width:12px;height:12px;background:#F2761A"></div>
+    <div style="position:absolute;right:-90px;bottom:-90px;width:300px;height:300px;border:1.5px solid rgba(143,182,220,0.22);border-radius:50%;border-top-color:transparent"></div>
+    <div data-reveal style="max-width:760px;margin:0 auto;text-align:center;position:relative">
+      <h2 style="font-size:clamp(34px,5vw,62px);line-height:1.03;font-weight:800;letter-spacing:-0.035em;color:#fff">Pronto para se conectar?</h2>
+      <p style="margin-top:22px;font-size:18px;line-height:1.6;color:#C8DAEC">Fale com a equipe da Connectar e encontre o produto ou serviço ideal para você.</p>
+      <a href="{{ waGeral }}" target="_blank" style="display:inline-block;margin-top:36px;background:#F2761A;color:#fff;font-size:16px;font-weight:700;padding:19px 36px;border-radius:6px" style-hover="background:#fff;color:#06264A">Falar no WhatsApp</a>
+      <p style="margin-top:20px;font-size:15px;font-weight:600;color:#8FB6DC">(33) 99199-4419</p>
+    </div>
+  </section>
+
+  <footer style="background:#041B34;padding:72px 28px 40px">
+    <div style="max-width:1280px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px">
+        <div>
+          <div style="display:flex;flex-direction:column;line-height:1">
+            <span style="font-size:22px;font-weight:800;letter-spacing:-0.02em;color:#fff">CONNECTAR</span>
+            <span style="font-size:9.5px;font-weight:600;letter-spacing:0.34em;color:#2E9BE8;margin-top:4px">TECNOLOGIA</span>
+          </div>
+          <p style="margin-top:20px;font-size:15px;line-height:1.6;color:#8FB6DC;max-width:240px">Celulares, acessórios e assistência técnica.</p>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:700;letter-spacing:0.2em;color:#F2761A">NAVEGAÇÃO</p>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:11px">
+            <a href="#inicio" style="font-size:15px;color:#C8DAEC">Início</a>
+            <a href="#celulares" style="font-size:15px;color:#C8DAEC">Celulares</a>
+            <a href="#acessorios" style="font-size:15px;color:#C8DAEC">Acessórios</a>
+            <a href="#assistencia" style="font-size:15px;color:#C8DAEC">Assistência Técnica</a>
+            <a href="#sobre" style="font-size:15px;color:#C8DAEC">Sobre</a>
+            <a href="#contato" style="font-size:15px;color:#C8DAEC">Contato</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:700;letter-spacing:0.2em;color:#F2761A">CONTATO</p>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:11px">
+            <a href="tel:+5533991994419" style="font-size:15px;color:#C8DAEC">(33) 99199-4419</a>
+            <p style="font-size:15px;line-height:1.6;color:#8FB6DC">Praça do Povo, 20 - Centro<br>Capelinha - MG</p>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:700;letter-spacing:0.2em;color:#F2761A">REDES</p>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:11px">
+            <a href="https://www.instagram.com/connectar_tecnologia/" target="_blank" style="font-size:15px;color:#C8DAEC">Instagram</a>
+            <a href="{{ waGeral }}" target="_blank" style="font-size:15px;color:#C8DAEC">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:56px;padding-top:24px;border-top:1px solid rgba(143,182,220,0.18);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
+        <p style="font-size:13.5px;color:#6E93B8">© 2026 Connectar Tecnologia. Todos os direitos reservados.</p>
+        <p style="font-size:13.5px;color:#6E93B8">Capelinha — Minas Gerais</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="{{ waGeral }}" target="_blank" aria-label="Falar no WhatsApp" style="position:fixed;right:20px;bottom:20px;z-index:70;background:#F2761A;color:#fff;font-size:15px;font-weight:700;padding:16px 22px;border-radius:999px;box-shadow:0 12px 30px -10px rgba(6,38,74,0.55);display:flex;align-items:center;gap:10px" style-hover="background:#0B72CE;color:#fff">
+    <span style="width:9px;height:9px;background:#fff;border-radius:50%;display:block"></span>WhatsApp
+  </a>
+
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:90;background:rgba(4,27,52,0.94);display:flex;align-items:center;justify-content:center;padding:40px;cursor:zoom-out">
+      <img ref="{{ lightboxImg }}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Foto da loja Connectar" style="max-width:92vw;max-height:88vh;object-fit:contain;border-radius:8px">
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const PHONE = '5533991994419';
+const msg = (t) => 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(t);
+const produto = (p) => msg('Olá! Vi o ' + p + ' no site da Connectar e gostaria de saber mais sobre disponibilidade e preço.');
+
+const SEQ_TOTAL = 150; // os quadros finais (rodapé/fim da página gravada) foram removidos
+const SEQ_SRC = (i) => 'uploads/ezgif-47a4fb9076e372e2-jpg/ezgif-frame-' + String(i).padStart(3, '0') + '.jpg';
+
+class Component extends DCLogic {
+  seqSection = React.createRef();
+  seqStage = React.createRef();
+  seqParticles = React.createRef();
+  seqCanvas = React.createRef();
+  heroSection = React.createRef();
+  seqFrames = [];
+  seqTarget = 0;
+  seqCurrent = 0;
+  seqDrawn = -1;
+
+  startSequence() {
+    const section = this.seqSection.current, cv = this.seqCanvas.current;
+    if (!section || !cv || !this.seqStage.current) return;
+    const ctx = cv.getContext('2d');
+
+    for (let i = 1; i <= SEQ_TOTAL; i++) {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = SEQ_SRC(i);
+      img.addEventListener('load', () => { if (Math.round(this.seqCurrent) === i - 1) this.seqDrawn = -1; });
+      this.seqFrames.push(img);
+    }
+
+    const stage = this.seqStage.current;
+
+    // fundo futurista: partículas + conexões, seguindo o ponteiro
+    const pc = this.seqParticles.current;
+    if (pc) {
+      const pctx = pc.getContext('2d');
+      const parts = [];
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const sizeP = () => {
+        pc.width = Math.round(pc.clientWidth * dpr);
+        pc.height = Math.round(pc.clientHeight * dpr);
+      };
+      sizeP();
+      this._pRo = new ResizeObserver(sizeP);
+      this._pRo.observe(pc);
+      for (let i = 0; i < 90; i++) {
+        parts.push({
+          x: Math.random(), y: Math.random(),
+          vx: (Math.random() - 0.5) * 0.00035,
+          vy: -(0.0002 + Math.random() * 0.0004),
+          r: 0.6 + Math.random() * 1.8,
+          o: 0.25 + Math.random() * 0.5
+        });
+      }
+      const mouse = { x: -1, y: -1 };
+      this._onMove = (e) => {
+        const b = pc.getBoundingClientRect();
+        mouse.x = (e.clientX - b.left) / b.width;
+        mouse.y = (e.clientY - b.top) / b.height;
+      };
+      stage.addEventListener('pointermove', this._onMove);
+      this._onLeave = () => { mouse.x = -1; mouse.y = -1; };
+      stage.addEventListener('pointerleave', this._onLeave);
+
+      const drawParticles = () => {
+        const W = pc.width, H = pc.height;
+        if (!W || !H) return;
+        pctx.clearRect(0, 0, W, H);
+        for (const p of parts) {
+          p.x += p.vx; p.y += p.vy;
+          if (mouse.x >= 0) {
+            const dx = p.x - mouse.x, dy = p.y - mouse.y;
+            const d = Math.hypot(dx, dy);
+            if (d < 0.16 && d > 0.0001) { p.x += (dx / d) * 0.0012; p.y += (dy / d) * 0.0012; }
+          }
+          if (p.y < -0.05) { p.y = 1.05; p.x = Math.random(); }
+          if (p.x < -0.05) p.x = 1.05;
+          if (p.x > 1.05) p.x = -0.05;
+          const X = p.x * W, Y = p.y * H;
+          pctx.beginPath();
+          pctx.arc(X, Y, p.r * dpr, 0, Math.PI * 2);
+          pctx.fillStyle = 'rgba(140,196,240,' + p.o.toFixed(2) + ')';
+          pctx.fill();
+        }
+        for (let i = 0; i < parts.length; i++) {
+          for (let j = i + 1; j < parts.length; j++) {
+            const a = parts[i], b = parts[j];
+            const dx = (a.x - b.x) * W, dy = (a.y - b.y) * H;
+            const d2 = dx * dx + dy * dy;
+            const lim = (110 * dpr) * (110 * dpr);
+            if (d2 < lim) {
+              pctx.beginPath();
+              pctx.moveTo(a.x * W, a.y * H);
+              pctx.lineTo(b.x * W, b.y * H);
+              pctx.strokeStyle = 'rgba(46,155,232,' + (0.16 * (1 - d2 / lim)).toFixed(3) + ')';
+              pctx.lineWidth = dpr;
+              pctx.stroke();
+            }
+          }
+        }
+      };
+      this._drawParticles = drawParticles;
+    }
+
+    const draw = (idx) => {
+      const img = this.seqFrames[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      ctx.drawImage(img, 0, 0, cv.width, cv.height);
+      this.seqDrawn = idx;
+    };
+
+    const tick = () => {
+      const r = section.getBoundingClientRect();
+      const vh = window.innerHeight || 800;
+      // travamento próprio (não depende de position:sticky do navegador)
+      const stageH = stage.offsetHeight || vh;
+      const offset = Math.min(Math.max(-r.top, 0), Math.max(r.height - stageH, 0));
+      stage.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
+      const span = r.height - stageH;
+      const p = span > 0 ? Math.min(Math.max(-r.top / span, 0), 1) : 0;
+      this.seqTarget = p * (SEQ_TOTAL - 1);
+      this.seqCurrent += (this.seqTarget - this.seqCurrent) * 0.14;
+      const idx = Math.max(0, Math.min(SEQ_TOTAL - 1, Math.round(this.seqCurrent)));
+      if (idx !== this.seqDrawn || this.seqDrawn < 0) draw(idx);
+      if (this._drawParticles && r.bottom > 0 && r.top < vh) this._drawParticles();
+      // transição cruzada com o hero: a cena se dissolve nos últimos 18% da rolagem
+      const fade = Math.min(Math.max((p - 0.74) / 0.26, 0), 1);
+      const ease = fade * fade * (3 - 2 * fade);
+      stage.style.opacity = (1 - ease * 0.85).toFixed(3);
+      stage.style.filter = ease > 0 ? 'blur(' + (ease * 9).toFixed(2) + 'px)' : 'none';
+      const inner = this.seqCanvas.current;
+      if (inner) inner.style.transform = 'scale(' + (1 + ease * 0.07).toFixed(4) + ')';
+      const hero = this.heroSection.current;
+      if (hero) {
+        // o hero sobe por cima da cena enquanto ela se dissolve
+        hero.style.transform = 'translate3d(0,' + ((1 - ease) * 88).toFixed(2) + 'vh,0)';
+        hero.style.opacity = (0.25 + ease * 0.75).toFixed(3);
+      }
+      this._seqRaf = requestAnimationFrame(tick);
+    };
+    this._seqRaf = requestAnimationFrame(tick);
+  }
+
+  state = { menuOpen: false, lightbox: null };
+
+  lightboxImg = React.createRef();
+
+  componentDidUpdate() {
+    const img = this.lightboxImg.current;
+    if (img && this.state.lightbox && img.src !== this.state.lightbox) img.src = this.state.lightbox;
+  }
+
+  componentDidMount() {
+    this.startSequence();
+    const nodes = Array.from(this.el ? this.el.querySelectorAll('[data-reveal]') : document.querySelectorAll('[data-reveal]'));
+    if (!('IntersectionObserver' in window)) return;
+    // revelação progressiva: o bloco sobe e seus itens entram em cascata
+    const groups = new Map();
+    nodes.forEach(n => {
+      n.style.opacity = '0';
+      n.style.transform = 'translateY(24px)';
+      n.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';
+      const kids = Array.from(n.children).filter(k => k.nodeType === 1);
+      if (kids.length > 1 && kids.length <= 12) {
+        kids.forEach((k, i) => {
+          k.style.opacity = '0';
+          k.style.transform = 'translateY(18px)';
+          k.style.transition = 'opacity .6s cubic-bezier(.2,.7,.2,1) ' + (0.07 * i).toFixed(2) + 's, transform .6s cubic-bezier(.2,.7,.2,1) ' + (0.07 * i).toFixed(2) + 's';
+        });
+        groups.set(n, kids);
+      }
+    });
+    const show = (n) => {
+      n.style.opacity = '1';
+      n.style.transform = 'none';
+      const kids = groups.get(n);
+      if (kids) kids.forEach(k => { k.style.opacity = '1'; k.style.transform = 'none'; });
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    nodes.forEach(n => io.observe(n));
+    this._io = io;
+    // sondagem por posição: revela só o que entrou na área visível
+    let pending = nodes.slice();
+    const poll = () => {
+      const vh = window.innerHeight || 800;
+      pending = pending.filter(n => {
+        const r = n.getBoundingClientRect();
+        if (r.top < vh * 1.05) { show(n); return false; }
+        return true;
+      });
+      if (pending.length) this._poll = requestAnimationFrame(poll);
+    };
+    this._poll = requestAnimationFrame(poll);
+    // último recurso: impressão nunca deve sair com conteúdo oculto
+    this._onPrint = () => nodes.forEach(show);
+    window.addEventListener('beforeprint', this._onPrint);
+    this._onKey = (ev) => { if (ev.key === 'Escape') this.setState({ lightbox: null }); };
+    window.addEventListener('keydown', this._onKey);
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._poll) cancelAnimationFrame(this._poll);
+    if (this._seqRaf) cancelAnimationFrame(this._seqRaf);
+    if (this._pRo) this._pRo.disconnect();
+    const stg = this.seqStage.current;
+    if (stg && this._onMove) { stg.removeEventListener('pointermove', this._onMove); stg.removeEventListener('pointerleave', this._onLeave); }
+    if (this._onPrint) window.removeEventListener('beforeprint', this._onPrint);
+    if (this._onKey) window.removeEventListener('keydown', this._onKey);
+  }
+
+  renderVals() {
+    return {
+      menuOpen: this.state.menuOpen,
+      seqSection: this.seqSection,
+      seqStage: this.seqStage,
+      seqParticles: this.seqParticles,
+      seqCanvas: this.seqCanvas,
+      heroSection: this.heroSection,
+      lightboxOpen: !!this.state.lightbox,
+      lightboxImg: this.lightboxImg,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      closeLightbox: () => this.setState({ lightbox: null }),
+      onGalleryClick: (e) => {
+        const t = e.target;
+        if (t && t.dataset && t.dataset.src) this.setState({ lightbox: t.currentSrc || t.src });
+      },
+      waGeral: msg('Olá! Gostaria de conhecer os produtos da Connectar Tecnologia.'),
+      waAssistencia: msg('Olá! Gostaria de solicitar um orçamento para assistência técnica.'),
+      waIphone: produto('iPhone'),
+      waSamsung: produto('Samsung Galaxy'),
+      waFones: produto('fone de ouvido'),
+      waCaixas: produto('caixa de som'),
+      waAcessorios: produto('acessório')
+    };
+  }
+}
+</script>
+</body>
+</html>

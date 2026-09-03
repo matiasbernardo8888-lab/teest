@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Animação de Rolagem Suave</title>
+<style>
+  html, body { margin:0; background:#050507; -webkit-tap-highlight-color:transparent; }
+  * { box-sizing:border-box; }
+</style>
+</helmet>
+
+<div ref="{{ scroller }}" style="position:fixed;inset:0;overflow-y:scroll;overscroll-behavior:none;background:#050507">
+  <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center">
+    <canvas ref="{{ canvas }}" width="720" height="992" style="height:100vh;width:auto;max-width:100vw;display:block;background:#fff"></canvas>
+  </div>
+  <div ref="{{ spacer }}" style="height:1200vh"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const TOTAL = 223;
+const SRC = (i) => 'uploads/ezgif-47a4fb9076e372e2-jpg/ezgif-frame-' + String(i).padStart(3, '0') + '.jpg';
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.scroller = React.createRef();
+    this.canvas = React.createRef();
+    this.spacer = React.createRef();
+    this.frames = [];
+    this.target = 0;   // quadro desejado, conforme a rolagem
+    this.current = 0;  // quadro suavizado
+    this.drawn = -1;
+  }
+
+  componentDidMount() {
+    const scroller = this.scroller.current, cv = this.canvas.current;
+    if (!scroller || !cv) return;
+    const ctx = cv.getContext('2d');
+
+    for (let i = 1; i <= TOTAL; i++) {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = SRC(i);
+      this.frames.push(img);
+    }
+
+    const draw = (idx) => {
+      const img = this.frames[idx];
+      if (img && img.complete && img.naturalWidth) {
+        ctx.drawImage(img, 0, 0, cv.width, cv.height);
+        this.drawn = idx;
+      }
+    };
+    this.frames[0].addEventListener('load', () => draw(0));
+    draw(0);
+
+    const readScroll = () => {
+      const max = scroller.scrollHeight - scroller.clientHeight;
+      const p = max > 0 ? Math.min(Math.max(scroller.scrollTop / max, 0), 1) : 0;
+      this.target = p * (TOTAL - 1);
+    };
+    this._onScroll = readScroll;
+    scroller.addEventListener('scroll', readScroll, { passive: true });
+    readScroll();
+
+    // suavização: o quadro persegue a posição de rolagem, deixando o movimento fluido
+    const tick = () => {
+      this.current += (this.target - this.current) * 0.14;
+      const idx = Math.round(this.current);
+      if (idx !== this.drawn) draw(idx);
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this._raf);
+    if (this.scroller.current) this.scroller.current.removeEventListener('scroll', this._onScroll);
+  }
+
+  renderVals() {
+    return { scroller: this.scroller, canvas: this.canvas, spacer: this.spacer };
+  }
+}
+</script>
+</body>
+</html>
